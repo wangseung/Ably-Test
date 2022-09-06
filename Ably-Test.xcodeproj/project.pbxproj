@@ -27,12 +27,19 @@
 		633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD40928C6E43E00D0971A /* MainTabBarController.swift */; };
 		633DD40D28C6E49700D0971A /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD40C28C6E49700D0971A /* CompositionRoot.swift */; };
 		633DD41028C6E91700D0971A /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 633DD40F28C6E91700D0971A /* RxTest */; };
+		6350AAE228C714F700853F88 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AAE128C714F700853F88 /* HomeService.swift */; };
+		6350AAE428C717FB00853F88 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AAE328C717FB00853F88 /* HomeResponse.swift */; };
+		6350AAE628C719A100853F88 /* AblyNetworing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AAE528C719A100853F88 /* AblyNetworing.swift */; };
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
 		63D3F43F28C7045700A4DE85 /* BannerContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */; };
 		63D3F44328C7081900A4DE85 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44228C7081900A4DE85 /* PaddingLabel.swift */; };
 		63D3F44528C7088100A4DE85 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44428C7088100A4DE85 /* SwiftUIPreview.swift */; };
+		63D3F44728C70D5A00A4DE85 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44628C70D5A00A4DE85 /* Banner.swift */; };
+		63D3F44928C70E0600A4DE85 /* Goods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44828C70E0600A4DE85 /* Goods.swift */; };
+		63D3F44E28C70EFA00A4DE85 /* AblyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44D28C70EFA00A4DE85 /* AblyAPI.swift */; };
+		63D3F45028C711B400A4DE85 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44F28C711B400A4DE85 /* Bundle+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,11 +77,18 @@
 		633DD40328C6E13C00D0971A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		633DD40928C6E43E00D0971A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		633DD40C28C6E49700D0971A /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		6350AAE128C714F700853F88 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		6350AAE328C717FB00853F88 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
+		6350AAE528C719A100853F88 /* AblyNetworing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AblyNetworing.swift; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
 		63D3F44228C7081900A4DE85 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		63D3F44428C7088100A4DE85 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
+		63D3F44628C70D5A00A4DE85 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		63D3F44828C70E0600A4DE85 /* Goods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goods.swift; sourceTree = "<group>"; };
+		63D3F44D28C70EFA00A4DE85 /* AblyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AblyAPI.swift; sourceTree = "<group>"; };
+		63D3F44F28C711B400A4DE85 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +200,7 @@
 				633DD3E628C6DC3D00D0971A /* Features */,
 				633DD3E928C6DC6700D0971A /* Models */,
 				633DD40728C6E31C00D0971A /* Services */,
+				63D3F44C28C70EC600A4DE85 /* Network */,
 				63D3F43A28C6F57000A4DE85 /* Utils */,
 				633DD3BA28C6DACB00D0971A /* ViewController.swift */,
 			);
@@ -195,6 +210,9 @@
 		633DD3E928C6DC6700D0971A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				63D3F44628C70D5A00A4DE85 /* Banner.swift */,
+				63D3F44828C70E0600A4DE85 /* Goods.swift */,
+				6350AAE328C717FB00853F88 /* HomeResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +238,7 @@
 		633DD40728C6E31C00D0971A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				6350AAE128C714F700853F88 /* HomeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -269,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */,
+				63D3F44F28C711B400A4DE85 /* Bundle+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -280,6 +300,15 @@
 				63D3F44428C7088100A4DE85 /* SwiftUIPreview.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		63D3F44C28C70EC600A4DE85 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				63D3F44D28C70EFA00A4DE85 /* AblyAPI.swift */,
+				6350AAE528C719A100853F88 /* AblyNetworing.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,12 +461,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D3F44928C70E0600A4DE85 /* Goods.swift in Sources */,
+				6350AAE428C717FB00853F88 /* HomeResponse.swift in Sources */,
+				6350AAE628C719A100853F88 /* AblyNetworing.swift in Sources */,
 				633DD3BB28C6DACB00D0971A /* ViewController.swift in Sources */,
+				63D3F44E28C70EFA00A4DE85 /* AblyAPI.swift in Sources */,
+				63D3F45028C711B400A4DE85 /* Bundle+Extension.swift in Sources */,
 				633DD40D28C6E49700D0971A /* CompositionRoot.swift in Sources */,
+				63D3F44728C70D5A00A4DE85 /* Banner.swift in Sources */,
 				633DD3EB28C6DCB300D0971A /* BaseViewController.swift in Sources */,
 				63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */,
 				63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */,
 				633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */,
+				6350AAE228C714F700853F88 /* HomeService.swift in Sources */,
 				63D3F43F28C7045700A4DE85 /* BannerContainerCell.swift in Sources */,
 				633DD3B728C6DACB00D0971A /* AppDelegate.swift in Sources */,
 				63D3F44528C7088100A4DE85 /* SwiftUIPreview.swift in Sources */,
@@ -616,6 +652,7 @@
 		633DD3DE28C6DACC00D0971A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_URL = "https://d2bab9i9pr8lds.cloudfront.net/api";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -643,6 +680,7 @@
 		633DD3DF28C6DACC00D0971A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_URL = "https://d2bab9i9pr8lds.cloudfront.net/api";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;

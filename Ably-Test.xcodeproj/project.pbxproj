@@ -27,6 +27,9 @@
 		633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD40928C6E43E00D0971A /* MainTabBarController.swift */; };
 		633DD40D28C6E49700D0971A /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD40C28C6E49700D0971A /* CompositionRoot.swift */; };
 		633DD41028C6E91700D0971A /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 633DD40F28C6E91700D0971A /* RxTest */; };
+		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
+		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
+		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,8 @@
 		633DD40328C6E13C00D0971A /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		633DD40928C6E43E00D0971A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		633DD40C28C6E49700D0971A /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +79,7 @@
 				633DD3F028C6DDD500D0971A /* RxSwift in Frameworks */,
 				633DD3FC28C6DE5100D0971A /* Moya in Frameworks */,
 				633DD3F528C6DDDF00D0971A /* ReactorKit in Frameworks */,
+				63D3F43828C6F02400A4DE85 /* Then in Frameworks */,
 				633DD3FE28C6DE5100D0971A /* RxMoya in Frameworks */,
 				633DD3EE28C6DDD500D0971A /* RxCocoa in Frameworks */,
 				633DD3F828C6DDE900D0971A /* SnapKit in Frameworks */,
@@ -149,6 +155,7 @@
 		633DD3E628C6DC3D00D0971A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				63D3F43328C6EDDE00A4DE85 /* Home */,
 				633DD40828C6E43600D0971A /* MainTab */,
 			);
 			path = Features;
@@ -173,6 +180,7 @@
 				633DD3E628C6DC3D00D0971A /* Features */,
 				633DD3E928C6DC6700D0971A /* Models */,
 				633DD40728C6E31C00D0971A /* Services */,
+				63D3F43A28C6F57000A4DE85 /* Utils */,
 				633DD3BA28C6DACB00D0971A /* ViewController.swift */,
 			);
 			path = Sources;
@@ -225,6 +233,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		63D3F43328C6EDDE00A4DE85 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		63D3F43A28C6F57000A4DE85 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,6 +272,7 @@
 				633DD3F728C6DDE900D0971A /* SnapKit */,
 				633DD3FB28C6DE5100D0971A /* Moya */,
 				633DD3FD28C6DE5100D0971A /* RxMoya */,
+				63D3F43728C6F02400A4DE85 /* Then */,
 			);
 			productName = "Ably-Test";
 			productReference = 633DD3B328C6DACB00D0971A /* Ably-Test.app */;
@@ -329,6 +354,7 @@
 				633DD3F328C6DDDF00D0971A /* XCRemoteSwiftPackageReference "ReactorKit" */,
 				633DD3F628C6DDE900D0971A /* XCRemoteSwiftPackageReference "SnapKit" */,
 				633DD3FA28C6DE5100D0971A /* XCRemoteSwiftPackageReference "Moya" */,
+				63D3F43628C6F02400A4DE85 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 633DD3B428C6DACB00D0971A /* Products */;
 			projectDirPath = "";
@@ -376,6 +402,8 @@
 				633DD3BB28C6DACB00D0971A /* ViewController.swift in Sources */,
 				633DD40D28C6E49700D0971A /* CompositionRoot.swift in Sources */,
 				633DD3EB28C6DCB300D0971A /* BaseViewController.swift in Sources */,
+				63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */,
+				63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */,
 				633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */,
 				633DD3B728C6DACB00D0971A /* AppDelegate.swift in Sources */,
 				633DD3B928C6DACB00D0971A /* SceneDelegate.swift in Sources */,
@@ -753,6 +781,14 @@
 				minimumVersion = 15.0.0;
 			};
 		};
+		63D3F43628C6F02400A4DE85 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -790,6 +826,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 633DD3EC28C6DDD500D0971A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
+		};
+		63D3F43728C6F02400A4DE85 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63D3F43628C6F02400A4DE85 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

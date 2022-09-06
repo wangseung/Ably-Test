@@ -16,7 +16,11 @@ final class CompositionRoot {
     let window = UIWindow(windowScene: windowScene)
     window.makeKeyAndVisible()
     
-    let mainTabBarController = MainTabBarController()
+    let homeViewController = HomeViewController()
+    
+    let mainTabBarController = MainTabBarController(
+      homeViewController: homeViewController
+    )
     window.rootViewController = mainTabBarController
     
     return AppDependency(

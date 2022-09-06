@@ -30,6 +30,9 @@
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
+		63D3F43F28C7045700A4DE85 /* BannerContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */; };
+		63D3F44328C7081900A4DE85 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44228C7081900A4DE85 /* PaddingLabel.swift */; };
+		63D3F44528C7088100A4DE85 /* SwiftUIPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F44428C7088100A4DE85 /* SwiftUIPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		633DD40C28C6E49700D0971A /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
+		63D3F44228C7081900A4DE85 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		63D3F44428C7088100A4DE85 /* SwiftUIPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +242,7 @@
 		63D3F43328C6EDDE00A4DE85 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				63D3F43D28C7038200A4DE85 /* Views */,
 				63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -244,9 +251,35 @@
 		63D3F43A28C6F57000A4DE85 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */,
+				63D3F44128C7081000A4DE85 /* Views */,
+				63D3F44028C7080A00A4DE85 /* Extensions */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		63D3F43D28C7038200A4DE85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		63D3F44028C7080A00A4DE85 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63D3F44128C7081000A4DE85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63D3F44228C7081900A4DE85 /* PaddingLabel.swift */,
+				63D3F44428C7088100A4DE85 /* SwiftUIPreview.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,9 +438,12 @@
 				63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */,
 				63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */,
 				633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */,
+				63D3F43F28C7045700A4DE85 /* BannerContainerCell.swift in Sources */,
 				633DD3B728C6DACB00D0971A /* AppDelegate.swift in Sources */,
+				63D3F44528C7088100A4DE85 /* SwiftUIPreview.swift in Sources */,
 				633DD3B928C6DACB00D0971A /* SceneDelegate.swift in Sources */,
 				633DD40428C6E13C00D0971A /* BaseCollectionViewCell.swift in Sources */,
+				63D3F44328C7081900A4DE85 /* PaddingLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

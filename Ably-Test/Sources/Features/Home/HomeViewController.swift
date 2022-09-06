@@ -55,6 +55,9 @@ final class HomeViewController: BaseViewController {
     self.tabBarItem.selectedImage = UIImage(named: "house.fill")?.withRenderingMode(.alwaysTemplate)
   }
   
+  
+  // MARK: Setup CollectionView
+  
   private func setupCollectionView() {
     // TODO: DataSource 설정
     self.collectionView.collectionViewLayout = listLayout()

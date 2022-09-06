@@ -27,7 +27,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     $0.register(BannerContainerCell.self, forCellWithReuseIdentifier: ReuseIdentifier.bannerContainer)
-    $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
+    $0.register(GoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }
   
   
@@ -36,7 +36,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   var dataSource: DataSource!
   
   
-  // MARK: Intiailze
+  // MARK: Intialize
   
   init(reactor: Reactor) {
     defer { self.reactor = reactor }
@@ -82,7 +82,6 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
       .disposed(by: disposeBag)
     
     reactor.state.map { $0.sections }
-      .debug()
       .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
       .disposed(by: self.disposeBag)
   }
@@ -105,24 +104,12 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.bannerContainer, for: indexPath) as! BannerContainerCell
         cell.reactor = bannerContainerCellReactor
         return cell
-      case .goods:
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath)
+      case .goods(let goodsCellReactor):
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath) as! GoodsCell
+        cell.reactor = goodsCellReactor
         return cell
       }
     })
     self.collectionView.collectionViewLayout = self.collectionViewLayout()
-  }
-  
-  private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.7))
-    let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.7))
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-    
-    let section = NSCollectionLayoutSection(group: group)
-    section.interGroupSpacing = 10.0
-
-    return UICollectionViewCompositionalLayout(section: section)
   }
 }

@@ -22,10 +22,16 @@ final class BannerCell: BasePagerViewCell, ReactorKit.View {
   }
   
 
-  // MARK: Intiailze
+  // MARK: Intialize
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+  
+    // FSPagerCell에서 그림자 넣는 코드로 인해 warning 발생하여 처리
+    self.contentView.layer.shadowColor = nil
+    self.contentView.layer.shadowRadius = 0
+    self.contentView.layer.shadowOpacity = 0
+    self.contentView.layer.shadowOffset = .zero
     
     self.contentView.addSubview(coverImageView)
   }

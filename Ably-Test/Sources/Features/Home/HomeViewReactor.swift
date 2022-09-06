@@ -64,17 +64,22 @@ final class HomeViewReactor: Reactor {
       state.lastID = response.goods.last?.id
       state.sections = [
         .banner([self.makeBannerSectionItem(with: state.banners)]),
-        .goods([.goods])
+        .goods(self.makeGoodsSectionItem(with: state.goods))
       ]
       
     case .appendGoods(let goods):
       state.goods += goods
-      let abc = goods.map { _ in HomeViewSectionItem.goods }
-      let items = state.sections[0].items + abc
+      let items = state.sections[0].items
       state.sections[1] = .goods(items)
     }
     
     return state
+  }
+  
+  func makeGoodsSectionItem(with goods: [Goods]) -> [HomeViewSectionItem] {
+    return goods
+      .map { GoodsCellReactor(goods: $0) }
+      .map(HomeViewSectionItem.goods)
   }
   
   func makeBannerSectionItem(with banners: [Banner]) -> HomeViewSectionItem {

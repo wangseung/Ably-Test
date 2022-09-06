@@ -9,7 +9,7 @@ import UIKit
 
 final class MainTabBarController: UITabBarController {
   
-  // MARK: Intiailze
+  // MARK: Intialize
   
   init(
     homeViewController: HomeViewController

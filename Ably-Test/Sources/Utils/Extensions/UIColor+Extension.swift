@@ -12,4 +12,5 @@ extension UIColor {
   static let background = UIColor(named: "background")!
   static let textPrimary = UIColor(named: "textPrimary")!
   static let textSecondary = UIColor(named: "textSecondary")!
+  static let textDarkGray = UIColor(named: "textDarkGray")!
 }

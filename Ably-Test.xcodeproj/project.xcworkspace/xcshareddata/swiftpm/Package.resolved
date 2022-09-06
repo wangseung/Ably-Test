@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "fspagerview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WenchaoD/FSPagerView",
+      "state" : {
+        "branch" : "master",
+        "revision" : "968f0aaf120b8cb97d12c3a4447daa4926029f67"
+      }
+    },
+    {
       "identity" : "moya",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Moya/Moya",
@@ -37,12 +46,30 @@
       }
     },
     {
+      "identity" : "rxdatasources",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RxSwiftCommunity/RxDataSources",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bbfea3869f5492580563c676acda729c64fa489e"
+      }
+    },
+    {
       "identity" : "rxswift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ReactiveX/RxSwift.git",
       "state" : {
         "branch" : "main",
         "revision" : "e0ab8c4e18baf6679a65b325155923276b832687"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "3e48cb68d8e668d146dc59c73fb98cb628616236",
+        "version" : "5.13.2"
       }
     },
     {

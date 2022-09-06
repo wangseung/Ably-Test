@@ -43,7 +43,7 @@ extension AblyAPI: TargetType {
     case .fetchHome:
       return .requestPlain
       
-    case let .fetchMoreGoods(lastID):
+    case .fetchMoreGoods(let lastID):
       return .requestParameters(
         parameters: ["lastId": lastID],
         encoding: URLEncoding.queryString

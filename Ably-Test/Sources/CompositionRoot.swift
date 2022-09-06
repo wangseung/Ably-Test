@@ -16,7 +16,11 @@ final class CompositionRoot {
     let window = UIWindow(windowScene: windowScene)
     window.makeKeyAndVisible()
     
-    let homeViewController = HomeViewController()
+    let networking = AblyNetworing()
+    let homeService = HomeService(networking: networking)
+    
+    let homeViewReactor = HomeViewReactor(homeService: homeService)
+    let homeViewController = HomeViewController(reactor: homeViewReactor)
     
     let mainTabBarController = MainTabBarController(
       homeViewController: homeViewController

@@ -8,17 +8,42 @@
 import UIKit
 
 import SnapKit
+import ReactorKit
+import RxDataSources
 
-final class HomeViewController: BaseViewController {
+final class HomeViewController: BaseViewController, ReactorKit.View {
+  typealias Reactor = HomeViewReactor
+  typealias DataSource = RxCollectionViewSectionedReloadDataSource<HomeViewSection>
+  
+  // MARK: Constants
+  
+  private enum ReuseIdentifier {
+    static let bannerContainer = "BannerContainerCell"
+    static let goods = "GoodsCell"
+  }
+  
   
   // MARK: UI Components
   
-  private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+  private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
+    $0.register(BannerContainerCell.self, forCellWithReuseIdentifier: ReuseIdentifier.bannerContainer)
+    $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
+  }
   
-  override init() {
+  
+  // MARK: Properties
+  
+  var dataSource: DataSource!
+  
+  
+  // MARK: Intiailze
+  
+  init(reactor: Reactor) {
+    defer { self.reactor = reactor }
+    
     super.init()
     
-    self.title = NSLocalizedString("홈", comment: "home_controller_title")
+    self.title = "홈"
     self.setupTabBarItem()
     self.setupCollectionView()
   }
@@ -48,6 +73,21 @@ final class HomeViewController: BaseViewController {
   }
   
   
+  // MARK: Binding
+  
+  func bind(reactor: HomeViewReactor) {
+    self.rx.viewDidLoad
+      .map { Reactor.Action.load }
+      .bind(to: reactor.action)
+      .disposed(by: disposeBag)
+    
+    reactor.state.map { $0.sections }
+      .debug()
+      .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
+      .disposed(by: self.disposeBag)
+  }
+  
+  
   // MARK: Tab Bar Item
   
   func setupTabBarItem() {
@@ -59,14 +99,30 @@ final class HomeViewController: BaseViewController {
   // MARK: Setup CollectionView
   
   private func setupCollectionView() {
-    // TODO: DataSource 설정
-    self.collectionView.collectionViewLayout = listLayout()
+    self.dataSource = DataSource(configureCell: { dataSource, collectionView, indexPath, item in
+      switch item {
+      case .banner(let bannerContainerCellReactor):
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.bannerContainer, for: indexPath) as! BannerContainerCell
+        cell.reactor = bannerContainerCellReactor
+        return cell
+      case .goods:
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath)
+        return cell
+      }
+    })
+    self.collectionView.collectionViewLayout = self.collectionViewLayout()
   }
   
-  private func listLayout() -> UICollectionViewCompositionalLayout {
-    var listConfiguration = UICollectionLayoutListConfiguration(appearance: .plain)
-    listConfiguration.backgroundColor = .clear
+  private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.7))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
-    return UICollectionViewCompositionalLayout.list(using: listConfiguration)
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.7))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+    
+    let section = NSCollectionLayoutSection(group: group)
+    section.interGroupSpacing = 10.0
+
+    return UICollectionViewCompositionalLayout(section: section)
   }
 }

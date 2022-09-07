@@ -14,7 +14,7 @@ enum HomeViewSection {
 
 enum HomeViewSectionItem {
   case banner(BannerContainerCellReactor)
-  case goods(GoodsCellReactor)
+  case goods(HomeGoodsCellReactor)
 }
 
 extension HomeViewSection: SectionModelType {

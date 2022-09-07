@@ -42,9 +42,10 @@
 		6350AB0228C77B4A00853F88 /* FSPagerView in Frameworks */ = {isa = PBXBuildFile; productRef = 6350AB0128C77B4A00853F88 /* FSPagerView */; };
 		6350AB0428C77BCE00853F88 /* BasePagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB0328C77BCE00853F88 /* BasePagerViewCell.swift */; };
 		6350AB0928C7A8E300853F88 /* GoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB0828C7A8E300853F88 /* GoodsCell.swift */; };
-		6350AB0B28C7B8FB00853F88 /* GoodsCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB0A28C7B8FB00853F88 /* GoodsCellReactor.swift */; };
 		6350AB1028C7CF3D00853F88 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB0F28C7CF3D00853F88 /* Int+Extension.swift */; };
 		6350AB1228C7D85200853F88 /* HomeViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB1128C7D85200853F88 /* HomeViewController+Layout.swift */; };
+		6350AB1428C7DF6900853F88 /* HomeGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB1328C7DF6900853F88 /* HomeGoodsCell.swift */; };
+		6350AB1828C7E37900853F88 /* HomeGoodsCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB1728C7E37900853F88 /* HomeGoodsCellReactor.swift */; };
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
@@ -103,9 +104,10 @@
 		6350AAFB28C75BCB00853F88 /* BannerCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCellReactor.swift; sourceTree = "<group>"; };
 		6350AB0328C77BCE00853F88 /* BasePagerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePagerViewCell.swift; sourceTree = "<group>"; };
 		6350AB0828C7A8E300853F88 /* GoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCell.swift; sourceTree = "<group>"; };
-		6350AB0A28C7B8FB00853F88 /* GoodsCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCellReactor.swift; sourceTree = "<group>"; };
 		6350AB0F28C7CF3D00853F88 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		6350AB1128C7D85200853F88 /* HomeViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+Layout.swift"; sourceTree = "<group>"; };
+		6350AB1328C7DF6900853F88 /* HomeGoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoodsCell.swift; sourceTree = "<group>"; };
+		6350AB1728C7E37900853F88 /* HomeGoodsCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGoodsCellReactor.swift; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		633DD3E628C6DC3D00D0971A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				6350AB1528C7DF7800853F88 /* Common */,
 				63D3F43328C6EDDE00A4DE85 /* Home */,
 				633DD40828C6E43600D0971A /* MainTab */,
 			);
@@ -289,6 +292,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6350AB1528C7DF7800853F88 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB1628C7DF8100853F88 /* Views */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		6350AB1628C7DF8100853F88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB0828C7A8E300853F88 /* GoodsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		63D3F43328C6EDDE00A4DE85 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,8 +336,8 @@
 				6350AAF528C72ABC00853F88 /* BannerContainerCellReactor.swift */,
 				6350AAF928C75A3C00853F88 /* BannerCell.swift */,
 				6350AAFB28C75BCB00853F88 /* BannerCellReactor.swift */,
-				6350AB0828C7A8E300853F88 /* GoodsCell.swift */,
-				6350AB0A28C7B8FB00853F88 /* GoodsCellReactor.swift */,
+				6350AB1328C7DF6900853F88 /* HomeGoodsCell.swift */,
+				6350AB1728C7E37900853F88 /* HomeGoodsCellReactor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -510,7 +529,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				63D3F44928C70E0600A4DE85 /* Goods.swift in Sources */,
-				6350AB0B28C7B8FB00853F88 /* GoodsCellReactor.swift in Sources */,
 				6350AAE428C717FB00853F88 /* HomeResponse.swift in Sources */,
 				6350AAE628C719A100853F88 /* AblyNetworing.swift in Sources */,
 				633DD3BB28C6DACB00D0971A /* ViewController.swift in Sources */,
@@ -519,6 +537,7 @@
 				63D3F45028C711B400A4DE85 /* Bundle+Extension.swift in Sources */,
 				633DD40D28C6E49700D0971A /* CompositionRoot.swift in Sources */,
 				63D3F44728C70D5A00A4DE85 /* Banner.swift in Sources */,
+				6350AB1828C7E37900853F88 /* HomeGoodsCellReactor.swift in Sources */,
 				633DD3EB28C6DCB300D0971A /* BaseViewController.swift in Sources */,
 				63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */,
 				6350AB0928C7A8E300853F88 /* GoodsCell.swift in Sources */,
@@ -538,6 +557,7 @@
 				6350AAFA28C75A3C00853F88 /* BannerCell.swift in Sources */,
 				633DD3B928C6DACB00D0971A /* SceneDelegate.swift in Sources */,
 				633DD40428C6E13C00D0971A /* BaseCollectionViewCell.swift in Sources */,
+				6350AB1428C7DF6900853F88 /* HomeGoodsCell.swift in Sources */,
 				63D3F44328C7081900A4DE85 /* PaddingLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

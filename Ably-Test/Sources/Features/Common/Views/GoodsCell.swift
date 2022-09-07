@@ -9,8 +9,7 @@ import UIKit
 
 import ReactorKit
 
-class GoodsCell: BaseCollectionViewCell, ReactorKit.View {
-  typealias Reactor = GoodsCellReactor
+class GoodsCell: BaseCollectionViewCell {
   
   // MARK: Constants
   
@@ -26,7 +25,6 @@ class GoodsCell: BaseCollectionViewCell, ReactorKit.View {
     $0.contentMode = .scaleAspectFit
     $0.layer.cornerRadius = 4
     $0.clipsToBounds = true
-    $0.backgroundColor = .red
   }
   
   let likeButton = UIButton().then {
@@ -91,6 +89,7 @@ class GoodsCell: BaseCollectionViewCell, ReactorKit.View {
   private let separateLineView = UIView().then {
     $0.backgroundColor = .black.withAlphaComponent(0.1)
   }
+  
   
   // MARK: Intialize
   
@@ -158,17 +157,6 @@ class GoodsCell: BaseCollectionViewCell, ReactorKit.View {
   }
   
   
-  // MARK: Binding
-  
-  func bind(reactor: GoodsCellReactor) {
-    reactor.state.map { $0.goods }
-      .subscribe { [weak self] goods in
-        self?.setupContents(goods: goods)
-      }
-      .disposed(by: disposeBag)
-  }
-  
-  
   // MARK: Configure
   
   func setupContents(goods: Goods) {
@@ -198,7 +186,8 @@ struct GoodsCell_Preview: PreviewProvider {
   static var previews: some SwiftUI.View {
     UIViewPreview {
       let cell = GoodsCell()
-      cell.reactor = GoodsCellReactor(goods: Goods(id: 1, name: "asdfasfsasdfasfsasdfasfsasdfasfsasdfasfsasdfasfsasdfasfs", image: "https://d20s70j9gw443i.cloudfront.net/t_GOODS_THUMB_WEBP/https://imgb.a-bly.com/data/goods/20210316_1615852067467901s.jpg", actualPrice: 2000, price: 1800, isNew: true, sellCount: 80))
+      let goods = Goods(id: 1, name: "asdfasfsasdfasfsasdfasfsasdfasfsasdfasfsasdfasfsasdfasfs", image: "https://d20s70j9gw443i.cloudfront.net/t_GOODS_THUMB_WEBP/https://imgb.a-bly.com/data/goods/20210316_1615852067467901s.jpg", actualPrice: 2000, price: 1800, isNew: true, sellCount: 80)
+      cell.setupContents(goods: goods)
       return cell
     }
     .frame(maxHeight: 160, alignment: .topLeading)

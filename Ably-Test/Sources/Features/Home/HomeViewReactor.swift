@@ -78,7 +78,7 @@ final class HomeViewReactor: Reactor {
   
   func makeGoodsSectionItem(with goods: [Goods]) -> [HomeViewSectionItem] {
     return goods
-      .map { GoodsCellReactor(goods: $0) }
+      .map { HomeGoodsCellReactor(goods: $0) }
       .map(HomeViewSectionItem.goods)
   }
   

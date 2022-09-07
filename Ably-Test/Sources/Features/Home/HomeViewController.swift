@@ -27,7 +27,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
     $0.register(BannerContainerCell.self, forCellWithReuseIdentifier: ReuseIdentifier.bannerContainer)
-    $0.register(GoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
+    $0.register(HomeGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }
   
   
@@ -105,7 +105,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
         cell.reactor = bannerContainerCellReactor
         return cell
       case .goods(let goodsCellReactor):
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath) as! GoodsCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath) as! HomeGoodsCell
         cell.reactor = goodsCellReactor
         return cell
       }

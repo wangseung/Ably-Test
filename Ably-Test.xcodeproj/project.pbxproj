@@ -60,6 +60,11 @@
 		6350AB3728C90F4500853F88 /* WishListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3628C90F4500853F88 /* WishListSection.swift */; };
 		6350AB3A28C9106D00853F88 /* WishListGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3928C9106D00853F88 /* WishListGoodsCell.swift */; };
 		6350AB3C28C910DF00853F88 /* WishListGoodsCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3B28C910DF00853F88 /* WishListGoodsCellReactor.swift */; };
+		6350AB3F28C9405B00853F88 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 6350AB3E28C9405B00853F88 /* Nimble */; };
+		6350AB4228C9407100853F88 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 6350AB4128C9407100853F88 /* Quick */; };
+		6350AB4628C940F000853F88 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB4528C940F000853F88 /* Fixture.swift */; };
+		6350AB4828C9417100853F88 /* GoodsFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB4728C9417100853F88 /* GoodsFixture.swift */; };
+		6350AB4B28C9481C00853F88 /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 6350AB4A28C9481C00853F88 /* SDWebImageWebPCoder */; };
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
@@ -134,6 +139,8 @@
 		6350AB3628C90F4500853F88 /* WishListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListSection.swift; sourceTree = "<group>"; };
 		6350AB3928C9106D00853F88 /* WishListGoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListGoodsCell.swift; sourceTree = "<group>"; };
 		6350AB3B28C910DF00853F88 /* WishListGoodsCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListGoodsCellReactor.swift; sourceTree = "<group>"; };
+		6350AB4528C940F000853F88 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		6350AB4728C9417100853F88 /* GoodsFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsFixture.swift; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
@@ -150,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6350AB4B28C9481C00853F88 /* SDWebImageWebPCoder in Frameworks */,
 				633DD3F028C6DDD500D0971A /* RxSwift in Frameworks */,
 				633DD3FC28C6DE5100D0971A /* Moya in Frameworks */,
 				633DD3F528C6DDDF00D0971A /* ReactorKit in Frameworks */,
@@ -170,7 +178,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6350AB4228C9407100853F88 /* Quick in Frameworks */,
 				633DD41028C6E91700D0971A /* RxTest in Frameworks */,
+				6350AB3F28C9405B00853F88 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +228,7 @@
 		633DD3CC28C6DACC00D0971A /* Ably-TestTests */ = {
 			isa = PBXGroup;
 			children = (
+				6350AB4328C9408900853F88 /* Sources */,
 				633DD3CD28C6DACC00D0971A /* Ably_TestTests.swift */,
 			);
 			path = "Ably-TestTests";
@@ -378,6 +389,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6350AB4328C9408900853F88 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB4428C940E800853F88 /* Fixtures */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6350AB4428C940E800853F88 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB4528C940F000853F88 /* Fixture.swift */,
+				6350AB4728C9417100853F88 /* GoodsFixture.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
 		63D3F43328C6EDDE00A4DE85 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +501,7 @@
 				6350AB0128C77B4A00853F88 /* FSPagerView */,
 				6350AB1D28C8379E00853F88 /* Realm */,
 				6350AB1F28C8379E00853F88 /* RealmSwift */,
+				6350AB4A28C9481C00853F88 /* SDWebImageWebPCoder */,
 			);
 			productName = "Ably-Test";
 			productReference = 633DD3B328C6DACB00D0971A /* Ably-Test.app */;
@@ -494,6 +523,8 @@
 			name = "Ably-TestTests";
 			packageProductDependencies = (
 				633DD40F28C6E91700D0971A /* RxTest */,
+				6350AB3E28C9405B00853F88 /* Nimble */,
+				6350AB4128C9407100853F88 /* Quick */,
 			);
 			productName = "Ably-TestTests";
 			productReference = 633DD3C928C6DACC00D0971A /* Ably-TestTests.xctest */;
@@ -559,6 +590,9 @@
 				6350AAFD28C75CEA00853F88 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				6350AB0028C77B4A00853F88 /* XCRemoteSwiftPackageReference "FSPagerView" */,
 				6350AB1C28C8379E00853F88 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				6350AB3D28C9405B00853F88 /* XCRemoteSwiftPackageReference "Nimble" */,
+				6350AB4028C9407000853F88 /* XCRemoteSwiftPackageReference "Quick" */,
+				6350AB4928C9481B00853F88 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
 			);
 			productRefGroup = 633DD3B428C6DACB00D0971A /* Products */;
 			projectDirPath = "";
@@ -654,6 +688,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				633DD3CE28C6DACC00D0971A /* Ably_TestTests.swift in Sources */,
+				6350AB4828C9417100853F88 /* GoodsFixture.swift in Sources */,
+				6350AB4628C940F000853F88 /* Fixture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1053,6 +1089,30 @@
 				kind = branch;
 			};
 		};
+		6350AB3D28C9405B00853F88 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		6350AB4028C9407000853F88 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		6350AB4928C9481B00853F88 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageWebPCoder";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		63D3F43628C6F02400A4DE85 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -1128,6 +1188,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6350AB1C28C8379E00853F88 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		6350AB3E28C9405B00853F88 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6350AB3D28C9405B00853F88 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		6350AB4128C9407100853F88 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6350AB4028C9407000853F88 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		6350AB4A28C9481C00853F88 /* SDWebImageWebPCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6350AB4928C9481B00853F88 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
+			productName = SDWebImageWebPCoder;
 		};
 		63D3F43728C6F02400A4DE85 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

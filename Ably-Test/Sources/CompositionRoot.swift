@@ -7,6 +7,8 @@
 
 import UIKit
 
+import SDWebImageWebPCoder
+
 struct AppDependency {
   let window: UIWindow
 }
@@ -15,6 +17,8 @@ final class CompositionRoot {
   static func resolve(windowScene: UIWindowScene) -> AppDependency {
     let window = UIWindow(windowScene: windowScene)
     window.makeKeyAndVisible()
+    
+    SDImageCodersManager.shared.addCoder(SDImageWebPCoder.shared)
     
     let networking = AblyNetworing()
     let realmManager = RealmManager()

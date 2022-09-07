@@ -8,6 +8,7 @@
 import UIKit
 
 import ReactorKit
+import SDWebImage
 
 class GoodsCell: BaseCollectionViewCell {
   
@@ -21,7 +22,7 @@ class GoodsCell: BaseCollectionViewCell {
   
   // MARK: UI Components
   
-  private let imageView = UIImageView().then {
+  private let imageView = SDAnimatedImageView().then {
     $0.contentMode = .scaleAspectFit
     $0.layer.cornerRadius = 4
     $0.clipsToBounds = true
@@ -144,6 +145,13 @@ class GoodsCell: BaseCollectionViewCell {
   }
   
   
+  override func prepareForReuse() {
+    super.prepareForReuse()
+    
+    self.imageView.sd_cancelCurrentImageLoad()
+    self.imageView.sd_setImage(with: nil)
+  }
+  
   // MARK: Layout
   
   func setupConstraints() {
@@ -174,7 +182,9 @@ class GoodsCell: BaseCollectionViewCell {
   // MARK: Configure
   
   func setupContents(goods: Goods) {
-    self.imageView.sd_setImage(with: goods.imageURL)
+    if self.imageView.sd_imageURL == nil {
+      self.imageView.sd_setImage(with: goods.imageURL)
+    }
     let ratio = self.calcDiscountRateString(
       price: goods.price,
       actualPrice: goods.actualPrice

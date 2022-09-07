@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Goods: Codable {
+struct Goods: Codable, ModelType {
+  enum Event {
+    case updateLike(id: Int, isLike: Bool)
+  }
+  
   let id: Int
   let name: String
   let image: String
@@ -15,6 +19,8 @@ struct Goods: Codable {
   let price: Int
   let isNew: Bool
   let sellCount: Int
+  
+  var isLike: Bool = false
   
   enum CodingKeys: String, CodingKey {
     case id, name, image, price

@@ -17,9 +17,17 @@ final class CompositionRoot {
     window.makeKeyAndVisible()
     
     let networking = AblyNetworing()
+    let realmManager = RealmManager()
     let homeService = HomeService(networking: networking)
+    let wishListService = WishListService(realmManager: realmManager)
     
-    let homeViewReactor = HomeViewReactor(homeService: homeService)
+    let homeViewReactor = HomeViewReactor(
+      homeService: homeService,
+      wishListService: wishListService,
+      homeGoodsCellReactorFactory: { goods -> HomeGoodsCellReactor in
+        HomeGoodsCellReactor(goods: goods, wishListService: wishListService)
+      }
+    )
     let homeViewController = HomeViewController(reactor: homeViewReactor)
     
     let mainTabBarController = MainTabBarController(

@@ -7,7 +7,7 @@
 
 import ReactorKit
 
-class HomeGoodsCellReactor: Reactor {
+final class HomeGoodsCellReactor: Reactor {
   enum Action {
     case toggleLike
   }
@@ -18,20 +18,28 @@ class HomeGoodsCellReactor: Reactor {
   
   struct State {
     var goods: Goods
-    var isLiked: Bool = false
   }
   
   var initialState: State
   
-  init(goods: Goods) {
+  let wishListService: WishListServiceType
+  
+  init(goods: Goods, wishListService: WishListServiceType) {
     self.initialState = State(goods: goods)
+    self.wishListService = wishListService
   }
   
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
     case .toggleLike:
-      let toggleLike = !self.currentState.isLiked
-      return .just(.setLike(toggleLike))
+      let isLike = !self.currentState.goods.isLike
+      if isLike {
+        return self.wishListService.addGoods(self.currentState.goods)
+          .map { Mutation.setLike(true) }
+      } else {
+        return self.wishListService.removeGoods(self.currentState.goods.id)
+          .map { Mutation.setLike(false) }
+      }
     }
   }
   
@@ -39,7 +47,7 @@ class HomeGoodsCellReactor: Reactor {
     var state = state
     switch mutation {
     case .setLike(let isLiked):
-      state.isLiked = isLiked
+      state.goods.isLike = isLiked
     }
     return state
   }

@@ -17,6 +17,7 @@ final class HomeViewReactor: Reactor {
   enum Mutation {
     case setHomeResponse(HomeResponse)
     case appendGoods([Goods])
+    case setLikeGoods(index: Int, isLike: Bool)
   }
   
   struct State {
@@ -28,10 +29,18 @@ final class HomeViewReactor: Reactor {
   
   var initialState = State()
   
-  let homeService: HomeServiceType
+  private let homeService: HomeServiceType
+  private let wishListService: WishListServiceType
+  private let homeGoodsCellReactorFactory: (Goods) -> HomeGoodsCellReactor
   
-  init(homeService: HomeServiceType) {
+  init(
+    homeService: HomeServiceType,
+    wishListService: WishListServiceType,
+    homeGoodsCellReactorFactory: @escaping (Goods) -> HomeGoodsCellReactor
+  ) {
     self.homeService = homeService
+    self.wishListService = wishListService
+    self.homeGoodsCellReactorFactory = homeGoodsCellReactorFactory
   }
   
   func mutate(action: Action) -> Observable<Mutation> {
@@ -39,10 +48,19 @@ final class HomeViewReactor: Reactor {
     case .load:
       let fetchHome = self.homeService.fetchHome()
         .asObservable()
+      
+      let wishListGoods = wishListService.fetchGoods()
+      
+      return fetchHome
+        .withLatestFrom(wishListGoods, resultSelector: { [weak self] homeResponse, wishListGoods -> HomeResponse in
+          guard let self = self else { return homeResponse }
+          var homeResponse = homeResponse
+          homeResponse.goods = self.updateLike(goods: homeResponse.goods, wishListGoods: wishListGoods)
+          return homeResponse
+        })
         .map { response -> Mutation in
           .setHomeResponse(response)
         }
-      return fetchHome
       
     case .loadMoreGoods:
       guard let lastID = self.currentState.lastID else { return .empty() }
@@ -71,14 +89,33 @@ final class HomeViewReactor: Reactor {
       state.goods += goods
       let items = state.sections[0].items
       state.sections[1] = .goods(items)
+      
+    case let .setLikeGoods(index, isLike):
+      state.goods[index].isLike = isLike
+      state.sections[1] = .goods(self.makeGoodsSectionItem(with: state.goods))
     }
     
     return state
   }
   
+  func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+    let fromGoodsEvent = Goods.event.flatMap { [weak self] event in
+      self?.mutation(from: event) ?? .empty()
+    }
+    return Observable.of(mutation, fromGoodsEvent).merge()
+  }
+  
+  func mutation(from event: Goods.Event) -> Observable<Mutation> {
+    switch event {
+    case .updateLike(let id, let isLike):
+      let index = self.currentState.goods.firstIndex(where: { $0.id == id }) ?? 0
+      return .just(.setLikeGoods(index: index, isLike: isLike))
+    }
+  }
+  
   func makeGoodsSectionItem(with goods: [Goods]) -> [HomeViewSectionItem] {
     return goods
-      .map { HomeGoodsCellReactor(goods: $0) }
+      .map(self.homeGoodsCellReactorFactory)
       .map(HomeViewSectionItem.goods)
   }
   
@@ -86,5 +123,15 @@ final class HomeViewReactor: Reactor {
     let bannerContainerReactor = BannerContainerCellReactor(banners: banners)
     let bannerItem = HomeViewSectionItem.banner(bannerContainerReactor)
     return bannerItem
+  }
+  
+  func updateLike(goods: [Goods], wishListGoods: [Goods]) -> [Goods] {
+    var goodsList = goods
+    goodsList.enumerated()
+      .forEach { index, goods in
+         let isLike = wishListGoods.map { $0.id }.contains(goods.id)
+        goodsList[index].isLike = isLike
+      }
+    return goodsList
   }
 }

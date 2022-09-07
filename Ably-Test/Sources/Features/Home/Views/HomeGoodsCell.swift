@@ -21,6 +21,7 @@ final class HomeGoodsCell: GoodsCell, ReactorKit.View {
   func bind(reactor: Reactor) {
     self.likeButton.rx.tap
       .map { Reactor.Action.toggleLike }
+      .observe(on: MainScheduler.instance)
       .bind(to: reactor.action)
       .disposed(by: disposeBag)
     
@@ -30,19 +31,20 @@ final class HomeGoodsCell: GoodsCell, ReactorKit.View {
       })
       .disposed(by: self.disposeBag)
     
-    reactor.state.map { $0.isLiked }
+    reactor.state.map { $0.goods.isLike }
+      .skip(1) // 첫 로드할 때 제외하기..!
       .filter { $0 }
       .subscribe(onNext: { [weak self] _ in
         self?.increaseAndDecreaseAnimation()
       })
       .disposed(by: self.disposeBag)
     
-    reactor.state.map { $0.isLiked }
+    reactor.state.map { $0.goods.isLike }
       .map { $0 ? Image.heartFill : Image.heart }
       .bind(to: self.likeButton.rx.image(for: .normal))
       .disposed(by: self.disposeBag)
     
-    reactor.state.map { $0.isLiked }
+    reactor.state.map { $0.goods.isLike }
       .map { $0 ? UIColor.pointRed : UIColor.white }
       .bind(to: self.likeButton.rx.tintColor)
       .disposed(by: self.disposeBag)

@@ -103,6 +103,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
       .disposed(by: disposeBag)
     
     reactor.state.map { $0.sections }
+      .distinctUntilChanged()
       .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
       .disposed(by: self.disposeBag)
   }

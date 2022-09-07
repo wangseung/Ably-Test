@@ -39,3 +39,20 @@ extension HomeViewSection: SectionModelType {
     }
   }
 }
+
+extension HomeViewSection: Equatable {
+  
+}
+
+extension HomeViewSectionItem: Equatable {
+  static func == (lhs: HomeViewSectionItem, rhs: HomeViewSectionItem) -> Bool {
+    switch(lhs, rhs) {
+    case (.banner(let lhs), .banner(let rhs)):
+      return lhs == rhs
+    case (.goods(let lhs), .goods(let rhs)):
+      return lhs == rhs
+    default:
+      return false
+    }
+  }
+}

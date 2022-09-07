@@ -126,7 +126,6 @@ final class HomeViewReactor: Reactor {
       
     case let .setLikeGoods(index, isLike):
       state.goods[index].isLike = isLike
-      state.sections[1] = .goods(self.makeGoodsSectionItem(with: state.goods))
       if isLike {
         state.wishListGoods.append(state.goods[index])
       } else {

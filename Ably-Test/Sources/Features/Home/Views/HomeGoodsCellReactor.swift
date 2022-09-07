@@ -7,7 +7,7 @@
 
 import ReactorKit
 
-final class HomeGoodsCellReactor: Reactor {
+final class HomeGoodsCellReactor: Reactor, IdentityEquatable {
   enum Action {
     case toggleLike
   }

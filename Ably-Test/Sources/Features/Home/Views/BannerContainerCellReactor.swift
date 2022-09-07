@@ -7,7 +7,8 @@
 
 import ReactorKit
 
-final class BannerContainerCellReactor: Reactor {
+final class BannerContainerCellReactor: Reactor, IdentityEquatable {
+  
   enum Action {
     case move(index: Int)
   }

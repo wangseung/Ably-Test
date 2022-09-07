@@ -23,6 +23,7 @@ final class WishListService: WishListServiceType {
   func addGoods(_ goods: Goods) -> Observable<Void> {
     Observable.create { observer in
       self.realmManager.save(goods)
+      Goods.event.onNext(.updateLike(id: goods.id, isLike: true))
       observer.onNext(())
       observer.onCompleted()
       
@@ -37,6 +38,7 @@ final class WishListService: WishListServiceType {
         return Disposables.create()
       }
       self.realmManager.remove(value: object)
+      Goods.event.onNext(.updateLike(id: goodsID, isLike: false))
       observer.onNext(())
       observer.onCompleted()
       

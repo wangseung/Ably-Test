@@ -9,7 +9,7 @@ import Foundation
 
 struct Goods: Codable, ModelType {
   enum Event {
-    case updateLike(id: Int, isLike: Bool)
+    case updateLike(goods: Goods, isLike: Bool)
   }
   
   let id: Int

@@ -102,6 +102,8 @@ class GoodsCell: BaseCollectionViewCell {
   override init(frame: CGRect) {
     super.init(frame: frame)
    
+    self.contentView.backgroundColor = .background
+    
     self.setupViews()
     self.setupConstraints()
   }

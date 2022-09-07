@@ -30,8 +30,15 @@ final class CompositionRoot {
     )
     let homeViewController = HomeViewController(reactor: homeViewReactor)
     
+    let wishListViewReactor = WishListViewReactor(
+      wishListService: wishListService) { goods -> WishListGoodsCellReactor in
+        WishListGoodsCellReactor(goods: goods)
+      }
+    let wishListViewController = WishListViewController(reactor: wishListViewReactor)
+    
     let mainTabBarController = MainTabBarController(
-      homeViewController: homeViewController
+      homeViewController: homeViewController,
+      wishListViewController: wishListViewController
     )
     window.rootViewController = mainTabBarController
     

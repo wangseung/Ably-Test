@@ -55,6 +55,11 @@
 		6350AB2A28C8430D00853F88 /* PersistableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2928C8430D00853F88 /* PersistableProtocol.swift */; };
 		6350AB2D28C86ACF00853F88 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2C28C86ACF00853F88 /* ModelType.swift */; };
 		6350AB2F28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2E28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift */; };
+		6350AB3328C9097C00853F88 /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3228C9097C00853F88 /* WishListViewController.swift */; };
+		6350AB3528C9099300853F88 /* WishListViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3428C9099300853F88 /* WishListViewReactor.swift */; };
+		6350AB3728C90F4500853F88 /* WishListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3628C90F4500853F88 /* WishListSection.swift */; };
+		6350AB3A28C9106D00853F88 /* WishListGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3928C9106D00853F88 /* WishListGoodsCell.swift */; };
+		6350AB3C28C910DF00853F88 /* WishListGoodsCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB3B28C910DF00853F88 /* WishListGoodsCellReactor.swift */; };
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
@@ -124,6 +129,11 @@
 		6350AB2928C8430D00853F88 /* PersistableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableProtocol.swift; sourceTree = "<group>"; };
 		6350AB2C28C86ACF00853F88 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		6350AB2E28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ReachedBottom.swift"; sourceTree = "<group>"; };
+		6350AB3228C9097C00853F88 /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		6350AB3428C9099300853F88 /* WishListViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewReactor.swift; sourceTree = "<group>"; };
+		6350AB3628C90F4500853F88 /* WishListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListSection.swift; sourceTree = "<group>"; };
+		6350AB3928C9106D00853F88 /* WishListGoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListGoodsCell.swift; sourceTree = "<group>"; };
+		6350AB3B28C910DF00853F88 /* WishListGoodsCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListGoodsCellReactor.swift; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
@@ -227,6 +237,7 @@
 			children = (
 				6350AB1528C7DF7800853F88 /* Common */,
 				63D3F43328C6EDDE00A4DE85 /* Home */,
+				6350AB3128C9096F00853F88 /* WishList */,
 				633DD40828C6E43600D0971A /* MainTab */,
 			);
 			path = Features;
@@ -345,6 +356,26 @@
 				6350AB2928C8430D00853F88 /* PersistableProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		6350AB3128C9096F00853F88 /* WishList */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB3828C9106300853F88 /* Views */,
+				6350AB3228C9097C00853F88 /* WishListViewController.swift */,
+				6350AB3428C9099300853F88 /* WishListViewReactor.swift */,
+				6350AB3628C90F4500853F88 /* WishListSection.swift */,
+			);
+			path = WishList;
+			sourceTree = "<group>";
+		};
+		6350AB3828C9106300853F88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB3928C9106D00853F88 /* WishListGoodsCell.swift */,
+				6350AB3B28C910DF00853F88 /* WishListGoodsCellReactor.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		63D3F43328C6EDDE00A4DE85 /* Home */ = {
@@ -594,10 +625,12 @@
 				6350AB2A28C8430D00853F88 /* PersistableProtocol.swift in Sources */,
 				6350AB2F28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift in Sources */,
 				63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */,
+				6350AB3528C9099300853F88 /* WishListViewReactor.swift in Sources */,
 				6350AAF628C72ABC00853F88 /* BannerContainerCellReactor.swift in Sources */,
 				633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */,
 				6350AAFC28C75BCB00853F88 /* BannerCellReactor.swift in Sources */,
 				6350AAEF28C724DC00853F88 /* HomeViewSection.swift in Sources */,
+				6350AB3C28C910DF00853F88 /* WishListGoodsCellReactor.swift in Sources */,
 				6350AAE228C714F700853F88 /* HomeService.swift in Sources */,
 				6350AB1228C7D85200853F88 /* HomeViewController+Layout.swift in Sources */,
 				6350AB1028C7CF3D00853F88 /* Int+Extension.swift in Sources */,
@@ -607,8 +640,11 @@
 				6350AAEB28C71DCF00853F88 /* HomeViewReactor.swift in Sources */,
 				6350AAFA28C75A3C00853F88 /* BannerCell.swift in Sources */,
 				633DD3B928C6DACB00D0971A /* SceneDelegate.swift in Sources */,
+				6350AB3728C90F4500853F88 /* WishListSection.swift in Sources */,
 				633DD40428C6E13C00D0971A /* BaseCollectionViewCell.swift in Sources */,
 				6350AB1428C7DF6900853F88 /* HomeGoodsCell.swift in Sources */,
+				6350AB3A28C9106D00853F88 /* WishListGoodsCell.swift in Sources */,
+				6350AB3328C9097C00853F88 /* WishListViewController.swift in Sources */,
 				63D3F44328C7081900A4DE85 /* PaddingLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

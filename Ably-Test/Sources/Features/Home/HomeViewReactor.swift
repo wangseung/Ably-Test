@@ -151,8 +151,8 @@ final class HomeViewReactor: Reactor {
   
   func mutation(from event: Goods.Event) -> Observable<Mutation> {
     switch event {
-    case .updateLike(let id, let isLike):
-      let index = self.currentState.goods.firstIndex(where: { $0.id == id }) ?? 0
+    case .updateLike(let goods, let isLike):
+      let index = self.currentState.goods.firstIndex(where: { $0.id == goods.id }) ?? 0
       return .just(.setLikeGoods(index: index, isLike: isLike))
     }
   }

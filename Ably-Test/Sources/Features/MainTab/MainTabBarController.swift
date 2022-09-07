@@ -12,12 +12,14 @@ final class MainTabBarController: UITabBarController {
   // MARK: Intialize
   
   init(
-    homeViewController: HomeViewController
+    homeViewController: HomeViewController,
+    wishListViewController: WishListViewController
   ) {
     super.init(nibName: nil, bundle: nil)
     
     self.viewControllers = [
-      homeViewController
+      homeViewController,
+      wishListViewController
     ]
     .map { viewController -> UINavigationController in
       UINavigationController(rootViewController: viewController)

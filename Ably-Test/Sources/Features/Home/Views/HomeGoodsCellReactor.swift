@@ -37,7 +37,7 @@ final class HomeGoodsCellReactor: Reactor, IdentityEquatable {
         return self.wishListService.addGoods(self.currentState.goods)
           .map { Mutation.setLike(true) }
       } else {
-        return self.wishListService.removeGoods(self.currentState.goods.id)
+        return self.wishListService.removeGoods(self.currentState.goods)
           .map { Mutation.setLike(false) }
       }
     }

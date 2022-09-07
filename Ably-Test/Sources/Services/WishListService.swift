@@ -9,7 +9,7 @@ import RxSwift
 
 protocol WishListServiceType {
   func addGoods(_ goods: Goods) -> Observable<Void>
-  func removeGoods(_ goodsID: Int) -> Observable<Void>
+  func removeGoods(_ goods: Goods) -> Observable<Void>
   func fetchGoods() -> Observable<[Goods]>
 }
 
@@ -23,7 +23,7 @@ final class WishListService: WishListServiceType {
   func addGoods(_ goods: Goods) -> Observable<Void> {
     Observable.create { observer in
       self.realmManager.save(goods)
-      Goods.event.onNext(.updateLike(id: goods.id, isLike: true))
+      Goods.event.onNext(.updateLike(goods: goods, isLike: true))
       observer.onNext(())
       observer.onCompleted()
       
@@ -31,14 +31,14 @@ final class WishListService: WishListServiceType {
     }
   }
   
-  func removeGoods(_ goodsID: Int) -> Observable<Void> {
+  func removeGoods(_ goods: Goods) -> Observable<Void> {
     Observable.create { observer in
-      guard let object = self.realmManager.object(GoodsObject.self, key: goodsID) else {
+      guard let object = self.realmManager.object(GoodsObject.self, key: goods.id) else {
         observer.onError(RealmError.notFoundObject)
         return Disposables.create()
       }
       self.realmManager.remove(value: object)
-      Goods.event.onNext(.updateLike(id: goodsID, isLike: false))
+      Goods.event.onNext(.updateLike(goods: goods, isLike: false))
       observer.onNext(())
       observer.onCompleted()
       

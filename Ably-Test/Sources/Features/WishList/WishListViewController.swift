@@ -1,8 +1,8 @@
 //
-//  HomeViewController.swift
+//  WishListViewController.swift
 //  Ably-Test
 //
-//  Created by SeungHyeon Wang on 2022/09/06.
+//  Created by SeungHyeon Wang on 2022/09/08.
 //
 
 import UIKit
@@ -11,14 +11,14 @@ import SnapKit
 import ReactorKit
 import RxDataSources
 
-final class HomeViewController: BaseViewController, ReactorKit.View {
-  typealias Reactor = HomeViewReactor
-  typealias DataSource = RxCollectionViewSectionedReloadDataSource<HomeViewSection>
+final class WishListViewController: BaseViewController, ReactorKit.View {
+  typealias Reactor = WishListViewReactor
+  typealias DataSource = RxCollectionViewSectionedReloadDataSource<WishListSection>
+  
   
   // MARK: Constants
   
   private enum ReuseIdentifier {
-    static let bannerContainer = "BannerContainerCell"
     static let goods = "GoodsCell"
   }
   
@@ -26,12 +26,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   // MARK: UI Components
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
-    $0.register(BannerContainerCell.self, forCellWithReuseIdentifier: ReuseIdentifier.bannerContainer)
-    $0.register(HomeGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
-  }
-  
-  private let refreshControl = UIRefreshControl().then {
-    $0.layer.zPosition = -1
+    $0.register(WishListGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }
   
   
@@ -40,14 +35,13 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   var dataSource: DataSource!
   
   
-  // MARK: Intialize
+  // MARK: Intiailze
   
   init(reactor: Reactor) {
     defer { self.reactor = reactor }
-    
     super.init()
     
-    self.title = "홈"
+    self.title = "좋아요"
     self.setupTabBarItem()
     self.setupCollectionView()
   }
@@ -63,9 +57,8 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
     super.viewDidLoad()
     
     self.view.backgroundColor = .background
-        
+    
     self.view.addSubview(self.collectionView)
-    self.collectionView.addSubview(self.refreshControl)
   }
   
   
@@ -80,31 +73,15 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   
   // MARK: Binding
   
-  func bind(reactor: HomeViewReactor) {
-    self.rx.viewDidLoad
-      .map { Reactor.Action.load }
-      .bind(to: reactor.action)
-      .disposed(by: self.disposeBag)
-    
-    self.collectionView.rx.isReachedBottom
-      .map { Reactor.Action.loadMoreGoods }
-      .bind(to: reactor.action)
-      .disposed(by: self.disposeBag)
-    
-    self.refreshControl.rx.controlEvent(.valueChanged)
-      .debounce(.seconds(1), scheduler: MainScheduler.instance)
-      .map { Reactor.Action.refresh }
-      .bind(to: reactor.action)
-      .disposed(by: self.disposeBag)
-    
-    reactor.state.map { $0.isRefreshing }
-      .distinctUntilChanged()
-      .bind(to: self.refreshControl.rx.isRefreshing)
-      .disposed(by: disposeBag)
-    
+  func bind(reactor: WishListViewReactor) {
     reactor.state.map { $0.sections }
       .distinctUntilChanged()
       .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
+      .disposed(by: self.disposeBag)
+    
+    self.rx.viewDidLoad
+      .map { Reactor.Action.load }
+      .bind(to: reactor.action)
       .disposed(by: self.disposeBag)
   }
   
@@ -114,11 +91,11 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   func setupTabBarItem() {
     let configuration = UIImage.SymbolConfiguration(pointSize: 14)
     self.tabBarItem.image = UIImage(
-      systemName: "house",
+      systemName: "heart",
       withConfiguration: configuration
     )?.withRenderingMode(.alwaysTemplate)
     self.tabBarItem.selectedImage = UIImage(
-      systemName: "house.fill",
+      systemName: "heart.fill",
       withConfiguration: configuration
     )?.withRenderingMode(.alwaysTemplate)
   }
@@ -129,16 +106,25 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   private func setupCollectionView() {
     self.dataSource = DataSource(configureCell: { dataSource, collectionView, indexPath, item in
       switch item {
-      case .banner(let bannerContainerCellReactor):
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.bannerContainer, for: indexPath) as! BannerContainerCell
-        cell.reactor = bannerContainerCellReactor
-        return cell
       case .goods(let goodsCellReactor):
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath) as! HomeGoodsCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier.goods, for: indexPath) as! WishListGoodsCell
         cell.reactor = goodsCellReactor
         return cell
       }
     })
     self.collectionView.collectionViewLayout = self.collectionViewLayout()
+  }
+}
+
+extension WishListViewController {
+  func collectionViewLayout() -> UICollectionViewLayout {
+    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(160))
+    let item = NSCollectionLayoutItem(layoutSize: itemSize)
+    
+    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(160))
+    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+    
+    let section = NSCollectionLayoutSection(group: group)
+    return UICollectionViewCompositionalLayout(section: section)
   }
 }

@@ -66,7 +66,10 @@ final class HomeViewReactor: Reactor {
       )
       
     case .refresh:
-      guard !self.currentState.isRefreshing else { return .empty() }
+      guard
+        !self.currentState.isRefreshing,
+        !self.currentState.isFetchingMoreGoods
+      else { return .empty() }
       let refresh = self.homeService.fetchHome()
         .asObservable()
         .map(Mutation.setHomeResponse)
@@ -79,10 +82,10 @@ final class HomeViewReactor: Reactor {
       
     case .loadMoreGoods:
       guard
+        !self.currentState.isRefreshing,
         !self.currentState.isFetchingMoreGoods,
         let lastID = self.currentState.lastID
       else { return .empty() }
-      
       let fetchMoreGoods = self.homeService.fetchMoreGoods(with: lastID)
         .asObservable()
         .map(Mutation.appendGoods)

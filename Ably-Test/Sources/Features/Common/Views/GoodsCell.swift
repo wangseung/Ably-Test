@@ -136,9 +136,8 @@ class GoodsCell: BaseCollectionViewCell {
     // 우측 텍스트들 vertical
     self.containerStackView.addArrangedSubview(self.textContentStackView)
     
-    
-    self.contentView.addSubview(self.likeButton)
     self.contentView.addSubview(self.containerStackView)
+    self.contentView.addSubview(self.likeButton)
     self.contentView.addSubview(self.separateLineView)
   }
   

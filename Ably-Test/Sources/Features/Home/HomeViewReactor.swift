@@ -15,15 +15,20 @@ final class HomeViewReactor: Reactor {
   }
   
   enum Mutation {
+    case setWishListGoods([Goods])
     case setHomeResponse(HomeResponse)
     case appendGoods([Goods])
     case setLikeGoods(index: Int, isLike: Bool)
+    case setFetchingMoreGoods(Bool)
   }
   
   struct State {
     var banners: [Banner] = []
     var goods: [Goods] = []
+    var wishListGoods: [Goods] = []
     var lastID: Int? = nil
+    var isLastPage = false
+    var isFetchingMoreGoods = false
     var sections: [HomeViewSection] = []
   }
   
@@ -46,29 +51,32 @@ final class HomeViewReactor: Reactor {
   func mutate(action: Action) -> Observable<Mutation> {
     switch action {
     case .load:
+      let wishListGoods = self.wishListService.fetchGoods()
+        .map(Mutation.setWishListGoods)
+      
       let fetchHome = self.homeService.fetchHome()
         .asObservable()
-      
-      let wishListGoods = wishListService.fetchGoods()
-      
-      return fetchHome
-        .withLatestFrom(wishListGoods, resultSelector: { [weak self] homeResponse, wishListGoods -> HomeResponse in
-          guard let self = self else { return homeResponse }
-          var homeResponse = homeResponse
-          homeResponse.goods = self.updateLike(goods: homeResponse.goods, wishListGoods: wishListGoods)
-          return homeResponse
-        })
-        .map { response -> Mutation in
-          .setHomeResponse(response)
-        }
+        .map(Mutation.setHomeResponse)
+      return .concat(
+        wishListGoods,
+        fetchHome
+      )
       
     case .loadMoreGoods:
-      guard let lastID = self.currentState.lastID else { return .empty() }
-      return self.homeService.fetchMoreGoods(with: lastID)
+      guard
+        !self.currentState.isFetchingMoreGoods,
+        let lastID = self.currentState.lastID
+      else { return .empty() }
+      
+      let fetchMoreGoods = self.homeService.fetchMoreGoods(with: lastID)
         .asObservable()
-        .map { goods -> Mutation in
-          .appendGoods(goods)
-        }
+        .map(Mutation.appendGoods)
+      
+      return .concat(
+        .just(.setFetchingMoreGoods(true)),
+        fetchMoreGoods,
+        .just(.setFetchingMoreGoods(false))
+      )
     }
   }
   
@@ -76,9 +84,12 @@ final class HomeViewReactor: Reactor {
     var state = state
     
     switch mutation {
+    case .setWishListGoods(let goods):
+      state.wishListGoods = goods
+      
     case .setHomeResponse(let response):
       state.banners = response.banners
-      state.goods = response.goods
+      state.goods = self.updateLike(goods: response.goods, wishListGoods: state.wishListGoods)
       state.lastID = response.goods.last?.id
       state.sections = [
         .banner([self.makeBannerSectionItem(with: state.banners)]),
@@ -86,13 +97,26 @@ final class HomeViewReactor: Reactor {
       ]
       
     case .appendGoods(let goods):
-      state.goods += goods
-      let items = state.sections[0].items
-      state.sections[1] = .goods(items)
+      if goods.isEmpty {
+        state.lastID = nil
+        return state
+      }
+      state.lastID = goods.last?.id
+      let goodsWithLike = self.updateLike(goods: goods, wishListGoods: state.wishListGoods)
+      state.goods += goodsWithLike
+      state.sections[1] = .goods(self.makeGoodsSectionItem(with: state.goods))
       
     case let .setLikeGoods(index, isLike):
       state.goods[index].isLike = isLike
       state.sections[1] = .goods(self.makeGoodsSectionItem(with: state.goods))
+      if isLike {
+        state.wishListGoods.append(state.goods[index])
+      } else {
+        state.wishListGoods.removeAll(where: { $0.id == state.goods[index].id })
+      }
+      
+    case .setFetchingMoreGoods(let isFetching):
+      state.isFetchingMoreGoods = isFetching
     }
     
     return state
@@ -123,6 +147,12 @@ final class HomeViewReactor: Reactor {
     let bannerContainerReactor = BannerContainerCellReactor(banners: banners)
     let bannerItem = HomeViewSectionItem.banner(bannerContainerReactor)
     return bannerItem
+  }
+  
+  func updateLikeHomeResponse(homeResponse: HomeResponse, wishListGoods: [Goods]) -> HomeResponse {
+    var homeResponse = homeResponse
+    homeResponse.goods = self.updateLike(goods: homeResponse.goods, wishListGoods: wishListGoods)
+    return homeResponse
   }
   
   func updateLike(goods: [Goods], wishListGoods: [Goods]) -> [Goods] {

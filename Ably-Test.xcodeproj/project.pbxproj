@@ -54,6 +54,7 @@
 		6350AB2728C841B300853F88 /* Goods+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2628C841B300853F88 /* Goods+Mapping.swift */; };
 		6350AB2A28C8430D00853F88 /* PersistableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2928C8430D00853F88 /* PersistableProtocol.swift */; };
 		6350AB2D28C86ACF00853F88 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2C28C86ACF00853F88 /* ModelType.swift */; };
+		6350AB2F28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB2E28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift */; };
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
@@ -122,6 +123,7 @@
 		6350AB2628C841B300853F88 /* Goods+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Goods+Mapping.swift"; sourceTree = "<group>"; };
 		6350AB2928C8430D00853F88 /* PersistableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistableProtocol.swift; sourceTree = "<group>"; };
 		6350AB2C28C86ACF00853F88 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
+		6350AB2E28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ReachedBottom.swift"; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				63D3F44F28C711B400A4DE85 /* Bundle+Extension.swift */,
 				6350AAEC28C7243500853F88 /* RxSwift+ViewLifeCycle.swift */,
 				6350AB0F28C7CF3D00853F88 /* Int+Extension.swift */,
+				6350AB2E28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				6350AB0928C7A8E300853F88 /* GoodsCell.swift in Sources */,
 				6350AB0428C77BCE00853F88 /* BasePagerViewCell.swift in Sources */,
 				6350AB2A28C8430D00853F88 /* PersistableProtocol.swift in Sources */,
+				6350AB2F28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift in Sources */,
 				63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */,
 				6350AAF628C72ABC00853F88 /* BannerContainerCellReactor.swift in Sources */,
 				633DD40A28C6E43E00D0971A /* MainTabBarController.swift in Sources */,

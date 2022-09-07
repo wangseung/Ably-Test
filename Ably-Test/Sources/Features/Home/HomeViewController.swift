@@ -79,7 +79,12 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
     self.rx.viewDidLoad
       .map { Reactor.Action.load }
       .bind(to: reactor.action)
-      .disposed(by: disposeBag)
+      .disposed(by: self.disposeBag)
+    
+    self.collectionView.rx.isReachedBottom
+      .map { Reactor.Action.loadMoreGoods }
+      .bind(to: reactor.action)
+      .disposed(by: self.disposeBag)
     
     reactor.state.map { $0.sections }
       .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))

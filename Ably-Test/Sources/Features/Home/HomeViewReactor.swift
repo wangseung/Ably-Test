@@ -11,6 +11,7 @@ import ReactorKit
 final class HomeViewReactor: Reactor {
   enum Action {
     case load
+    case refresh
     case loadMoreGoods
   }
   
@@ -19,6 +20,7 @@ final class HomeViewReactor: Reactor {
     case setHomeResponse(HomeResponse)
     case appendGoods([Goods])
     case setLikeGoods(index: Int, isLike: Bool)
+    case setRefreshing(Bool)
     case setFetchingMoreGoods(Bool)
   }
   
@@ -28,6 +30,7 @@ final class HomeViewReactor: Reactor {
     var wishListGoods: [Goods] = []
     var lastID: Int? = nil
     var isLastPage = false
+    var isRefreshing = false
     var isFetchingMoreGoods = false
     var sections: [HomeViewSection] = []
   }
@@ -60,6 +63,18 @@ final class HomeViewReactor: Reactor {
       return .concat(
         wishListGoods,
         fetchHome
+      )
+      
+    case .refresh:
+      guard !self.currentState.isRefreshing else { return .empty() }
+      let refresh = self.homeService.fetchHome()
+        .asObservable()
+        .map(Mutation.setHomeResponse)
+      
+      return .concat(
+        .just(.setRefreshing(true)),
+        refresh,
+        .just(.setRefreshing(false))
       )
       
     case .loadMoreGoods:
@@ -115,6 +130,9 @@ final class HomeViewReactor: Reactor {
         state.wishListGoods.removeAll(where: { $0.id == state.goods[index].id })
       }
       
+    case .setRefreshing(let isRefreshing):
+      state.isRefreshing = isRefreshing
+    
     case .setFetchingMoreGoods(let isFetching):
       state.isFetchingMoreGoods = isFetching
     }

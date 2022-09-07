@@ -30,6 +30,10 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
     $0.register(HomeGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }
   
+  private let refreshControl = UIRefreshControl().then {
+    $0.layer.zPosition = -1
+  }
+  
   
   // MARK: Properties
   
@@ -61,6 +65,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
     self.view.backgroundColor = .background
         
     self.view.addSubview(self.collectionView)
+    self.collectionView.addSubview(self.refreshControl)
   }
   
   
@@ -85,6 +90,17 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
       .map { Reactor.Action.loadMoreGoods }
       .bind(to: reactor.action)
       .disposed(by: self.disposeBag)
+    
+    self.refreshControl.rx.controlEvent(.valueChanged)
+      .debounce(.seconds(1), scheduler: MainScheduler.instance)
+      .map { Reactor.Action.refresh }
+      .bind(to: reactor.action)
+      .disposed(by: self.disposeBag)
+    
+    reactor.state.map { $0.isRefreshing }
+      .distinctUntilChanged()
+      .bind(to: self.refreshControl.rx.isRefreshing)
+      .disposed(by: disposeBag)
     
     reactor.state.map { $0.sections }
       .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))

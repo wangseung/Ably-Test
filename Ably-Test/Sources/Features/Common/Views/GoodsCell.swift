@@ -158,9 +158,9 @@ class GoodsCell: BaseCollectionViewCell {
     }
     
     self.containerStackView.snp.makeConstraints {
-      $0.top.equalTo(18)
-      $0.leading.trailing.equalToSuperview().inset(22)
-      $0.bottom.equalToSuperview().inset(25)
+      $0.top.equalTo(20)
+      $0.leading.trailing.equalToSuperview().inset(20)
+      $0.bottom.equalToSuperview().inset(20)
     }
     
     self.separateLineView.snp.makeConstraints {

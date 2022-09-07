@@ -26,6 +26,7 @@ final class HomeViewController: BaseViewController, ReactorKit.View {
   // MARK: UI Components
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
+    $0.backgroundColor = .clear
     $0.register(BannerContainerCell.self, forCellWithReuseIdentifier: ReuseIdentifier.bannerContainer)
     $0.register(HomeGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }

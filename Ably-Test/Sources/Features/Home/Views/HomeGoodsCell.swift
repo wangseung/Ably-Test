@@ -55,13 +55,17 @@ final class HomeGoodsCell: GoodsCell, ReactorKit.View {
   
   private func increaseAndDecreaseAnimation() {
     DispatchQueue.main.async {
-      UIView.animate(withDuration: 0.2) { [weak self] in
-        self?.likeButton.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-      } completion: { [weak self] _ in
-        UIView.animate(withDuration: 0.2) { [weak self] in
-          self?.likeButton.transform = CGAffineTransform.identity
+      UIView.animate(withDuration: 0.1, animations: { [weak self] in
+        self?.likeButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+      }, completion: { [weak self] _ in
+        UIView.animate(withDuration: 0.1) { [weak self] in
+          self?.likeButton.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        } completion: { [weak self] _ in
+          UIView.animate(withDuration: 0.2) { [weak self] in
+            self?.likeButton.transform = CGAffineTransform.identity
+          }
         }
-      }
+      })
     }
   }
 }

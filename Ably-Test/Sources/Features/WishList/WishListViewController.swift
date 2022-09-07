@@ -26,6 +26,7 @@ final class WishListViewController: BaseViewController, ReactorKit.View {
   // MARK: UI Components
   
   private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout()).then {
+    $0.backgroundColor = .clear
     $0.register(WishListGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }
   

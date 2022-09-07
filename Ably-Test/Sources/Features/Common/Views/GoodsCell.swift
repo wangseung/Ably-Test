@@ -67,7 +67,7 @@ class GoodsCell: BaseCollectionViewCell {
     $0.layer.borderColor = UIColor.textSecondary.cgColor
     $0.layer.borderWidth = 0.5
     $0.layer.cornerRadius = 2
-    $0.padding = UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5)
+    $0.padding = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
   }
   
   private let sellCountLabel = UILabel().then {
@@ -80,10 +80,16 @@ class GoodsCell: BaseCollectionViewCell {
     $0.spacing = 4
   }
   
-  private let contentStackView = UIStackView().then {
+  private let textContentStackView = UIStackView().then {
     $0.axis = .vertical
     $0.alignment = .leading
-    $0.spacing = 12
+    $0.spacing = 16
+  }
+  
+  private let containerStackView = UIStackView().then {
+    $0.axis = .horizontal
+    $0.alignment = .top
+    $0.spacing = 10
   }
   
   private let separateLineView = UIView().then {
@@ -108,16 +114,31 @@ class GoodsCell: BaseCollectionViewCell {
   // MARK: Setup Views
   
   func setupViews() {
-    self.contentView.addSubview(self.imageView)
-    self.contentView.addSubview(self.likeButton)
+    // 좌측 썸네일 이미지
+    self.containerStackView.addArrangedSubview(self.imageView)
+    self.containerStackView.setCustomSpacing(10, after: self.imageView)
+    
+    // 할인 + 가격
     self.priceStackView.addArrangedSubview(self.discountLabel)
     self.priceStackView.addArrangedSubview(self.priceLabel)
-    self.contentView.addSubview(self.priceStackView)
+    self.textContentStackView.addArrangedSubview(self.priceStackView)
+    self.textContentStackView.setCustomSpacing(6, after: self.priceStackView)
+    
+    // 이름
+    self.textContentStackView.addArrangedSubview(self.nameLabel)
+    self.textContentStackView.setCustomSpacing(16, after: self.nameLabel)
+    
+    // new 태그 + 판매 수
     self.bottomLabelStackView.addArrangedSubview(self.newLabel)
     self.bottomLabelStackView.addArrangedSubview(self.sellCountLabel)
-    self.contentStackView.addArrangedSubview(self.nameLabel)
-    self.contentStackView.addArrangedSubview(self.bottomLabelStackView)
-    self.contentView.addSubview(self.contentStackView)
+    self.textContentStackView.addArrangedSubview(self.bottomLabelStackView)
+    
+    // 우측 텍스트들 vertical
+    self.containerStackView.addArrangedSubview(self.textContentStackView)
+    
+    
+    self.contentView.addSubview(self.likeButton)
+    self.contentView.addSubview(self.containerStackView)
     self.contentView.addSubview(self.separateLineView)
   }
   
@@ -126,7 +147,6 @@ class GoodsCell: BaseCollectionViewCell {
   
   func setupConstraints() {
     self.imageView.snp.makeConstraints {
-      $0.top.leading.equalTo(18)
       $0.size.equalTo(80)
     }
     
@@ -136,16 +156,9 @@ class GoodsCell: BaseCollectionViewCell {
       $0.size.equalTo(30)
     }
     
-    self.priceStackView.snp.makeConstraints {
-      $0.top.equalTo(22)
-      $0.leading.equalTo(self.imageView.snp.trailing).offset(10)
-      $0.trailing.lessThanOrEqualToSuperview().inset(28)
-    }
-    
-    self.contentStackView.snp.makeConstraints {
-      $0.top.equalTo(self.priceStackView.snp.bottom).offset(2)
-      $0.leading.equalTo(self.imageView.snp.trailing).offset(10)
-      $0.trailing.equalToSuperview().inset(28)
+    self.containerStackView.snp.makeConstraints {
+      $0.top.equalTo(18)
+      $0.leading.trailing.equalToSuperview().inset(22)
       $0.bottom.equalToSuperview().inset(25)
     }
     
@@ -169,8 +182,11 @@ class GoodsCell: BaseCollectionViewCell {
     self.discountLabel.isHidden = ratio < 1
     self.priceLabel.text = goods.actualPrice.withCommas()
     self.nameLabel.text = goods.name
+    self.newLabel.isHidden = goods.isNew
     self.sellCountLabel.text = "\(goods.sellCount.withCommas())개 구매중"
     self.sellCountLabel.isHidden = goods.sellCount < 10
+    
+    self.bottomLabelStackView.isHidden = goods.sellCount < 10 && goods.isNew
   }
   
   func calcDiscountRateString(price: Int, actualPrice: Int) -> Int {

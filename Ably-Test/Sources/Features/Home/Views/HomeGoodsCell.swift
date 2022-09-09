@@ -21,9 +21,8 @@ final class HomeGoodsCell: GoodsCell, ReactorKit.View {
   func bind(reactor: Reactor) {
     self.likeButton.rx.tap
       .map { Reactor.Action.toggleLike }
-      .observe(on: MainScheduler.instance)
       .bind(to: reactor.action)
-      .disposed(by: disposeBag)
+      .disposed(by: self.disposeBag)
     
     reactor.state.map { $0.goods }
       .subscribe(onNext: { [weak self] goods in

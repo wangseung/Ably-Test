@@ -56,7 +56,6 @@ final class BannerCell: BasePagerViewCell, ReactorKit.View {
   
   func bind(reactor: BannerCellReactor) {
     reactor.state.map { $0.banner }
-      .subscribe(on: MainScheduler.asyncInstance)
       .subscribe(onNext: { [weak self] banner in
         guard let self = self else { return }
         self.coverImageView.sd_imageTransition = .fade

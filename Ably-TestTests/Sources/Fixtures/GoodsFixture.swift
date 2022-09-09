@@ -69,4 +69,16 @@ struct GoodsFixture {
     "actual_price": 15000,
     "price": 7800
   ])
+  
+  static func makeGoods(
+    id: Int = 1,
+    name: String = "킬커버 광채 파운데이션 미니 15g",
+    image: String = "https://d20s70j9gw443i.cloudfront.net/t_GOODS_THUMB_WEBP/https://imgb.a-bly.com/data/goods/20210304_1614821003450471s.jpg",
+    isNew: Bool = false,
+    sellCount: Int = 30,
+    actualPrice: Int = 2000,
+    price: Int = 1800
+  ) -> Goods {
+    return Goods(id: id, name: name, image: image, actualPrice: actualPrice, price: price, isNew: isNew, sellCount: sellCount)
+  }
 }

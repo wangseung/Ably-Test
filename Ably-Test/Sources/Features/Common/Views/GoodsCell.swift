@@ -40,28 +40,28 @@ class GoodsCell: BaseCollectionViewCell {
     $0.imageView?.layer.shadowPath = nil
   }
   
-  private let discountLabel = UILabel().then {
+  let discountLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 17, weight: .semibold)
     $0.textColor = .pointRed
   }
   
-  private let priceLabel = UILabel().then {
+  let priceLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 17, weight: .semibold)
     $0.textColor = .textPrimary
   }
   
-  private let priceStackView = UIStackView().then {
+  let priceStackView = UIStackView().then {
     $0.axis = .horizontal
     $0.spacing = 6
   }
   
-  private let nameLabel = UILabel().then {
+  let nameLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 13, weight: .regular)
     $0.textColor = .textSecondary
     $0.numberOfLines = 0
   }
   
-  private let newLabel = PaddingLabel().then {
+  let newLabel = PaddingLabel().then {
     $0.text = "NEW"
     $0.font = .systemFont(ofSize: 9, weight: .medium)
     $0.textColor = .textDarkGray
@@ -71,7 +71,7 @@ class GoodsCell: BaseCollectionViewCell {
     $0.padding = UIEdgeInsets(top: 3, left: 6, bottom: 3, right: 6)
   }
   
-  private let sellCountLabel = UILabel().then {
+  let sellCountLabel = UILabel().then {
     $0.font = .systemFont(ofSize: 11, weight: .regular)
     $0.textColor = .textSecondary
   }
@@ -193,11 +193,11 @@ class GoodsCell: BaseCollectionViewCell {
     self.discountLabel.isHidden = ratio < 1
     self.priceLabel.text = goods.actualPrice.withCommas()
     self.nameLabel.text = goods.name
-    self.newLabel.isHidden = goods.isNew
+    self.newLabel.isHidden = !goods.isNew
     self.sellCountLabel.text = "\(goods.sellCount.withCommas())개 구매중"
     self.sellCountLabel.isHidden = goods.sellCount < 10
     
-    self.bottomLabelStackView.isHidden = goods.sellCount < 10 && goods.isNew
+    self.bottomLabelStackView.isHidden = goods.sellCount < 10 && !goods.isNew
   }
   
   func calcDiscountRateString(price: Int, actualPrice: Int) -> Int {

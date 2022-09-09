@@ -81,8 +81,7 @@ final class BannerContainerCell: BaseCollectionViewCell, ReactorKit.View {
   
   func bind(reactor: Reactor) {
     reactor.state.map { $0.indexText }
-      .observe(on: MainScheduler.asyncInstance)
-      .bind(to: indexLabel.rx.text)
+      .bind(to: self.indexLabel.rx.text)
       .disposed(by: self.disposeBag)
   }
 }

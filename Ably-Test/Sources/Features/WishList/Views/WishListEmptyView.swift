@@ -19,7 +19,7 @@ struct WishListEmptyView: View {
         .foregroundColor(Color(UIColor.lightGray))
         .padding(.bottom, 10)
       
-      Text("찜한 상품이 없어요")
+      Text("좋아요한 상품이 없어요")
         .font(.system(size: 15, weight: .medium))
         .padding(.bottom, 2)
       
@@ -33,7 +33,7 @@ struct WishListEmptyView: View {
           await tap()
         }
       } label: {
-        Text("랭킹 상품 보러가기")
+        Text("상품 보러가기")
           .padding(EdgeInsets(top: 12, leading: 40, bottom: 12, trailing: 40))
           .font(.system(size: 17, weight: .bold))
       }

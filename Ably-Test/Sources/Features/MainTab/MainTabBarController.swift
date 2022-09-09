@@ -36,4 +36,8 @@ final class MainTabBarController: UITabBarController {
     self.tabBar.tintColor = UIColor.pointRed
     self.tabBar.unselectedItemTintColor = UIColor.textSecondary
   }
+  
+  func changeTab(index: Int) {
+    self.selectedIndex = index
+  }
 }

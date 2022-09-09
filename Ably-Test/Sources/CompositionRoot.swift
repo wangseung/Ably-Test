@@ -25,6 +25,7 @@ final class CompositionRoot {
     let homeService = HomeService(networking: networking)
     let wishListService = WishListService(realmManager: realmManager)
     
+    // Home
     let homeViewReactor = HomeViewReactor(
       homeService: homeService,
       wishListService: wishListService,
@@ -32,18 +33,29 @@ final class CompositionRoot {
         HomeGoodsCellReactor(goods: goods, wishListService: wishListService)
       }
     )
-    let homeViewController = HomeViewController(reactor: homeViewReactor)
+    let homeViewController = HomeViewController(
+      reactor: homeViewReactor
+    )
     
+    // WishList
     let wishListViewReactor = WishListViewReactor(
       wishListService: wishListService) { goods -> WishListGoodsCellReactor in
         WishListGoodsCellReactor(goods: goods)
       }
-    let wishListViewController = WishListViewController(reactor: wishListViewReactor)
+    let wishListViewController = WishListViewController(
+      reactor: wishListViewReactor
+    )
     
+    // MainTabBar
     let mainTabBarController = MainTabBarController(
       homeViewController: homeViewController,
       wishListViewController: wishListViewController
     )
+    
+    wishListViewController.moveToHome = { [weak mainTabBarController] in
+      mainTabBarController?.changeTab(index: 0)
+    }
+    
     window.rootViewController = mainTabBarController
     
     return AppDependency(

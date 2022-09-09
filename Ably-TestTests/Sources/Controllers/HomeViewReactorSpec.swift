@@ -88,7 +88,7 @@ final class HomeViewReactorSpec: QuickSpec {
       }
     }
     
-    context("when goods liked in the result of load more") {
+    context("when liked goods in load more result") {
       beforeEach {
         let homeResponse = HomeResponse(
           banners: [],

@@ -9,6 +9,7 @@ import UIKit
 
 extension UIColor {
   static let pointRed = UIColor(named: "pointRed")!
+  static let pointRed2 = UIColor(named: "pointRed2")!
   static let background = UIColor(named: "background")!
   static let textPrimary = UIColor(named: "textPrimary")!
   static let textSecondary = UIColor(named: "textSecondary")!

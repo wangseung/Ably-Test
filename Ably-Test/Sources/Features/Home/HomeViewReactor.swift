@@ -29,7 +29,6 @@ final class HomeViewReactor: Reactor {
     var goods: [Goods] = []
     var wishListGoods: [Goods] = []
     var lastID: Int? = nil
-    var isLastPage = false
     var isRefreshing = false
     var isFetchingMoreGoods = false
     var sections: [HomeViewSection] = []

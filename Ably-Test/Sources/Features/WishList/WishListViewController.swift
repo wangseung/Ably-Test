@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 import SnapKit
 import ReactorKit
@@ -30,10 +31,17 @@ final class WishListViewController: BaseViewController, ReactorKit.View {
     $0.register(WishListGoodsCell.self, forCellWithReuseIdentifier: ReuseIdentifier.goods)
   }
   
+  private lazy var emptyView = WishListEmptyView { [weak self] in
+    self?.moveToHome?()
+  }
+  
+  private lazy var emptyViewHosting = UIHostingController(rootView: self.emptyView)
+  
   
   // MARK: Properties
   
   var dataSource: DataSource!
+  var moveToHome: (() -> Void)? = nil
   
   
   // MARK: Intiailze
@@ -60,6 +68,8 @@ final class WishListViewController: BaseViewController, ReactorKit.View {
     self.view.backgroundColor = .background
     
     self.view.addSubview(self.collectionView)
+    self.view.addSubview(self.emptyViewHosting.view)
+    self.emptyViewHosting.didMove(toParent: self)
   }
   
   
@@ -67,6 +77,10 @@ final class WishListViewController: BaseViewController, ReactorKit.View {
   
   override func setupConstraints() {
     self.collectionView.snp.makeConstraints {
+      $0.edges.equalToSuperview()
+    }
+    
+    self.emptyViewHosting.view.snp.makeConstraints {
       $0.edges.equalToSuperview()
     }
   }
@@ -78,6 +92,11 @@ final class WishListViewController: BaseViewController, ReactorKit.View {
     reactor.state.map { $0.sections }
       .distinctUntilChanged()
       .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
+      .disposed(by: self.disposeBag)
+    
+    reactor.state.map { $0.wishListGoods.count }
+      .map { $0 > 0 }
+      .bind(to: self.emptyViewHosting.view.rx.isHidden)
       .disposed(by: self.disposeBag)
     
     self.rx.viewDidLoad
@@ -119,11 +138,21 @@ final class WishListViewController: BaseViewController, ReactorKit.View {
 
 extension WishListViewController {
   func collectionViewLayout() -> UICollectionViewLayout {
-    let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(160))
+    let itemSize = NSCollectionLayoutSize(
+      widthDimension: .fractionalWidth(1.0),
+      heightDimension: .estimated(160)
+    )
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     
-    let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(160))
-    let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 1)
+    let groupSize = NSCollectionLayoutSize(
+      widthDimension: .fractionalWidth(1.0),
+      heightDimension: .estimated(160)
+    )
+    let group = NSCollectionLayoutGroup.horizontal(
+      layoutSize: groupSize,
+      subitem: item,
+      count: 1
+    )
     
     let section = NSCollectionLayoutSection(group: group)
     return UICollectionViewCompositionalLayout(section: section)

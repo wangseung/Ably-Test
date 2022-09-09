@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		633DD3B728C6DACB00D0971A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD3B628C6DACB00D0971A /* AppDelegate.swift */; };
-		633DD3B928C6DACB00D0971A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD3B828C6DACB00D0971A /* SceneDelegate.swift */; };
 		633DD3BB28C6DACB00D0971A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633DD3BA28C6DACB00D0971A /* ViewController.swift */; };
 		633DD3BE28C6DACB00D0971A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633DD3BC28C6DACB00D0971A /* Main.storyboard */; };
 		633DD3C028C6DACC00D0971A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633DD3BF28C6DACC00D0971A /* Assets.xcassets */; };
@@ -65,6 +64,15 @@
 		6350AB4628C940F000853F88 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB4528C940F000853F88 /* Fixture.swift */; };
 		6350AB4828C9417100853F88 /* GoodsFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB4728C9417100853F88 /* GoodsFixture.swift */; };
 		6350AB4B28C9481C00853F88 /* SDWebImageWebPCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 6350AB4A28C9481C00853F88 /* SDWebImageWebPCoder */; };
+		6350AB4D28C94D6E00853F88 /* BannerFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB4C28C94D6E00853F88 /* BannerFixture.swift */; };
+		6350AB5428C94E9F00853F88 /* Stub in Frameworks */ = {isa = PBXBuildFile; productRef = 6350AB5328C94E9F00853F88 /* Stub */; };
+		6350AB5628C94F1400853F88 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB5528C94F1400853F88 /* main.swift */; };
+		6350AB5828C94F8500853F88 /* StubAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB5728C94F8500853F88 /* StubAppDelegate.swift */; };
+		6350AB5A28C95FF600853F88 /* StubHomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB5928C95FF600853F88 /* StubHomeService.swift */; };
+		6350AB5C28C9605900853F88 /* HomeResponseFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB5B28C9605900853F88 /* HomeResponseFixture.swift */; };
+		6350AB5E28C9615C00853F88 /* StubWishListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB5D28C9615C00853F88 /* StubWishListService.swift */; };
+		6350AB6128C9652900853F88 /* HomeViewReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB6028C9652900853F88 /* HomeViewReactorSpec.swift */; };
+		6350AB6728CAE8D900853F88 /* WishListViewReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6350AB6628CAE8D900853F88 /* WishListViewReactorSpec.swift */; };
 		63D3F43528C6EF5000A4DE85 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */; };
 		63D3F43828C6F02400A4DE85 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 63D3F43728C6F02400A4DE85 /* Then */; };
 		63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */; };
@@ -97,7 +105,6 @@
 /* Begin PBXFileReference section */
 		633DD3B328C6DACB00D0971A /* Ably-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ably-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		633DD3B628C6DACB00D0971A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		633DD3B828C6DACB00D0971A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		633DD3BA28C6DACB00D0971A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		633DD3BD28C6DACB00D0971A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		633DD3BF28C6DACC00D0971A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +148,14 @@
 		6350AB3B28C910DF00853F88 /* WishListGoodsCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListGoodsCellReactor.swift; sourceTree = "<group>"; };
 		6350AB4528C940F000853F88 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		6350AB4728C9417100853F88 /* GoodsFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsFixture.swift; sourceTree = "<group>"; };
+		6350AB4C28C94D6E00853F88 /* BannerFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerFixture.swift; sourceTree = "<group>"; };
+		6350AB5528C94F1400853F88 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		6350AB5728C94F8500853F88 /* StubAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubAppDelegate.swift; sourceTree = "<group>"; };
+		6350AB5928C95FF600853F88 /* StubHomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHomeService.swift; sourceTree = "<group>"; };
+		6350AB5B28C9605900853F88 /* HomeResponseFixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponseFixture.swift; sourceTree = "<group>"; };
+		6350AB5D28C9615C00853F88 /* StubWishListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubWishListService.swift; sourceTree = "<group>"; };
+		6350AB6028C9652900853F88 /* HomeViewReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewReactorSpec.swift; sourceTree = "<group>"; };
+		6350AB6628CAE8D900853F88 /* WishListViewReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewReactorSpec.swift; sourceTree = "<group>"; };
 		63D3F43428C6EF5000A4DE85 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		63D3F43B28C6F58000A4DE85 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		63D3F43E28C7045700A4DE85 /* BannerContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerContainerCell.swift; sourceTree = "<group>"; };
@@ -180,6 +195,7 @@
 			files = (
 				6350AB4228C9407100853F88 /* Quick in Frameworks */,
 				633DD41028C6E91700D0971A /* RxTest in Frameworks */,
+				6350AB5428C94E9F00853F88 /* Stub in Frameworks */,
 				6350AB3F28C9405B00853F88 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,9 +283,9 @@
 		633DD3E828C6DC4C00D0971A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6350AB5528C94F1400853F88 /* main.swift */,
 				633DD3B628C6DACB00D0971A /* AppDelegate.swift */,
 				633DD40C28C6E49700D0971A /* CompositionRoot.swift */,
-				633DD3B828C6DACB00D0971A /* SceneDelegate.swift */,
 				633DD3E728C6DC4400D0971A /* Base */,
 				633DD3E628C6DC3D00D0971A /* Features */,
 				633DD3E928C6DC6700D0971A /* Models */,
@@ -392,6 +408,8 @@
 		6350AB4328C9408900853F88 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6350AB5F28C9651000853F88 /* Controllers */,
+				6350AB4E28C94DE200853F88 /* Stubs */,
 				6350AB4428C940E800853F88 /* Fixtures */,
 			);
 			path = Sources;
@@ -402,8 +420,29 @@
 			children = (
 				6350AB4528C940F000853F88 /* Fixture.swift */,
 				6350AB4728C9417100853F88 /* GoodsFixture.swift */,
+				6350AB4C28C94D6E00853F88 /* BannerFixture.swift */,
+				6350AB5B28C9605900853F88 /* HomeResponseFixture.swift */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		6350AB4E28C94DE200853F88 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB5728C94F8500853F88 /* StubAppDelegate.swift */,
+				6350AB5928C95FF600853F88 /* StubHomeService.swift */,
+				6350AB5D28C9615C00853F88 /* StubWishListService.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		6350AB5F28C9651000853F88 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6350AB6028C9652900853F88 /* HomeViewReactorSpec.swift */,
+				6350AB6628CAE8D900853F88 /* WishListViewReactorSpec.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		63D3F43328C6EDDE00A4DE85 /* Home */ = {
@@ -525,6 +564,7 @@
 				633DD40F28C6E91700D0971A /* RxTest */,
 				6350AB3E28C9405B00853F88 /* Nimble */,
 				6350AB4128C9407100853F88 /* Quick */,
+				6350AB5328C94E9F00853F88 /* Stub */,
 			);
 			productName = "Ably-TestTests";
 			productReference = 633DD3C928C6DACC00D0971A /* Ably-TestTests.xctest */;
@@ -593,6 +633,7 @@
 				6350AB3D28C9405B00853F88 /* XCRemoteSwiftPackageReference "Nimble" */,
 				6350AB4028C9407000853F88 /* XCRemoteSwiftPackageReference "Quick" */,
 				6350AB4928C9481B00853F88 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */,
+				6350AB5228C94E9F00853F88 /* XCRemoteSwiftPackageReference "Stub" */,
 			);
 			productRefGroup = 633DD3B428C6DACB00D0971A /* Products */;
 			projectDirPath = "";
@@ -655,6 +696,7 @@
 				633DD3EB28C6DCB300D0971A /* BaseViewController.swift in Sources */,
 				63D3F43C28C6F58000A4DE85 /* UIColor+Extension.swift in Sources */,
 				6350AB0928C7A8E300853F88 /* GoodsCell.swift in Sources */,
+				6350AB5628C94F1400853F88 /* main.swift in Sources */,
 				6350AB0428C77BCE00853F88 /* BasePagerViewCell.swift in Sources */,
 				6350AB2A28C8430D00853F88 /* PersistableProtocol.swift in Sources */,
 				6350AB2F28C8EDD800853F88 /* UIScrollView+ReachedBottom.swift in Sources */,
@@ -673,7 +715,6 @@
 				63D3F44528C7088100A4DE85 /* SwiftUIPreview.swift in Sources */,
 				6350AAEB28C71DCF00853F88 /* HomeViewReactor.swift in Sources */,
 				6350AAFA28C75A3C00853F88 /* BannerCell.swift in Sources */,
-				633DD3B928C6DACB00D0971A /* SceneDelegate.swift in Sources */,
 				6350AB3728C90F4500853F88 /* WishListSection.swift in Sources */,
 				633DD40428C6E13C00D0971A /* BaseCollectionViewCell.swift in Sources */,
 				6350AB1428C7DF6900853F88 /* HomeGoodsCell.swift in Sources */,
@@ -689,7 +730,14 @@
 			files = (
 				633DD3CE28C6DACC00D0971A /* Ably_TestTests.swift in Sources */,
 				6350AB4828C9417100853F88 /* GoodsFixture.swift in Sources */,
+				6350AB5E28C9615C00853F88 /* StubWishListService.swift in Sources */,
 				6350AB4628C940F000853F88 /* Fixture.swift in Sources */,
+				6350AB5C28C9605900853F88 /* HomeResponseFixture.swift in Sources */,
+				6350AB4D28C94D6E00853F88 /* BannerFixture.swift in Sources */,
+				6350AB5A28C95FF600853F88 /* StubHomeService.swift in Sources */,
+				6350AB5828C94F8500853F88 /* StubAppDelegate.swift in Sources */,
+				6350AB6128C9652900853F88 /* HomeViewReactorSpec.swift in Sources */,
+				6350AB6728CAE8D900853F88 /* WishListViewReactorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1113,6 +1161,14 @@
 				kind = branch;
 			};
 		};
+		6350AB5228C94E9F00853F88 /* XCRemoteSwiftPackageReference "Stub" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tokijh/Stub";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		63D3F43628C6F02400A4DE85 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
@@ -1203,6 +1259,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6350AB4928C9481B00853F88 /* XCRemoteSwiftPackageReference "SDWebImageWebPCoder" */;
 			productName = SDWebImageWebPCoder;
+		};
+		6350AB5328C94E9F00853F88 /* Stub */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6350AB5228C94E9F00853F88 /* XCRemoteSwiftPackageReference "Stub" */;
+			productName = Stub;
 		};
 		63D3F43728C6F02400A4DE85 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

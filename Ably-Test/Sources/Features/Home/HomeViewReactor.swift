@@ -169,12 +169,6 @@ final class HomeViewReactor: Reactor {
     return bannerItem
   }
   
-  func updateLikeHomeResponse(homeResponse: HomeResponse, wishListGoods: [Goods]) -> HomeResponse {
-    var homeResponse = homeResponse
-    homeResponse.goods = self.updateLike(goods: homeResponse.goods, wishListGoods: wishListGoods)
-    return homeResponse
-  }
-  
   func updateLike(goods: [Goods], wishListGoods: [Goods]) -> [Goods] {
     var goodsList = goods
     goodsList.enumerated()

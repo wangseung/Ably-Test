@@ -154,6 +154,15 @@
       }
     },
     {
+      "identity" : "stub",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tokijh/Stub",
+      "state" : {
+        "revision" : "7fd4bba9caabbef99e7b6f0da4a13c2acac7c4be",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "then",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/devxoul/Then",

@@ -14,8 +14,8 @@ struct AppDependency {
 }
 
 final class CompositionRoot {
-  static func resolve(windowScene: UIWindowScene) -> AppDependency {
-    let window = UIWindow(windowScene: windowScene)
+  static func resolve() -> AppDependency {
+    let window = UIWindow()
     window.makeKeyAndVisible()
     
     SDImageCodersManager.shared.addCoder(SDImageWebPCoder.shared)
